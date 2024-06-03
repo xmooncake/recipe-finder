@@ -13,7 +13,7 @@ export default function CustomAppBar() {
       <AppBar position="static" >
         <Toolbar>
           
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" align='center' component="div" sx={{ flexGrow: 1 }}>
             React Recipe Finder
             
             <br/>
