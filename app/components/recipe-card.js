@@ -1,28 +1,28 @@
 import React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
+import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
 
-export default function RecipeCard({  }) {
-    return (
-        // <div
-        //     style={{
-        //         display: "flex",
-        //         justifyContent: "center",  // Center horizontally
-        //         flexDirection: "column",
-        //         width: "50%",
-        //         padding: 20,
-        //         margin: "0 auto",  // Center horizontally within its parent
-        //     }}
-        // >
-            <Card>
-                <CardContent>
-                    <Typography variant="h6">{'Title'}</Typography>
-                    <Typography variant="body1">{'Description'}</Typography>
-                    <Typography variant="body2">Ingredients: {'Ingredients'}</Typography>
-                    <Typography variant="body2">Instructions: {'Instructions'}</Typography>
-                </CardContent>
-            </Card>
-        // </div>
-    );    
+function RecipeCard({ recipe }) {
+  return (
+    
+    <Card sx={{height: 600}}>
+      <CardMedia
+        component="img"
+        height="140"
+        
+        image={recipe['image']}
+        alt={recipe.label || 'No title'}
+      />
+      <CardContent>
+        <Typography variant="h6" component="div">
+          {recipe.label || 'No title'}
+        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', padding: 1 }}/>
+        <Typography variant="body2" color="text.secondary">
+          {recipe.ingredientLines.join(', ') || 'No ingredients'}
+        </Typography>
+      </CardContent>
+    </Card>
+  );
 }
+
+export default RecipeCard;
